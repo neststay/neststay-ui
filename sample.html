@@ -1,0 +1,454 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Nest Stay | Book Your Dream Home</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+            tailwind.config = {
+              darkMode: "class",
+              theme: {
+                extend: {
+                  "colors": {
+                          "on-surface-variant": "#5c3f41",
+                          "on-secondary": "#ffffff",
+                          "primary": "#ba0036",
+                          "on-primary-fixed": "#40000d",
+                          "tertiary-container": "#008558",
+                          "surface-container-low": "#fff0f0",
+                          "error-container": "#ffdad6",
+                          "on-primary": "#ffffff",
+                          "on-primary-container": "#fffbff",
+                          "on-secondary-fixed": "#00201d",
+                          "primary-fixed": "#ffdada",
+                          "on-tertiary-fixed": "#002113",
+                          "on-error-container": "#93000a",
+                          "primary-fixed-dim": "#ffb2b6",
+                          "surface-variant": "#fbdbdc",
+                          "outline": "#906f70",
+                          "surface-container-lowest": "#ffffff",
+                          "on-secondary-fixed-variant": "#005049",
+                          "surface-container-high": "#ffe1e2",
+                          "on-surface": "#281718",
+                          "error": "#ba1a1a",
+                          "secondary-fixed-dim": "#5bdacc",
+                          "primary-container": "#e21e4a",
+                          "on-secondary-container": "#007168",
+                          "surface-container-highest": "#fbdbdc",
+                          "inverse-on-surface": "#ffedec",
+                          "on-error": "#ffffff",
+                          "tertiary-fixed": "#80f9bd",
+                          "inverse-surface": "#3f2b2c",
+                          "on-primary-fixed-variant": "#920029",
+                          "inverse-primary": "#ffb2b6",
+                          "secondary-container": "#7af7e8",
+                          "on-tertiary": "#ffffff",
+                          "on-tertiary-container": "#f6fff6",
+                          "outline-variant": "#e5bdbe",
+                          "surface-tint": "#be0038",
+                          "on-tertiary-fixed-variant": "#005234",
+                          "secondary-fixed": "#7af7e8",
+                          "tertiary": "#006a45",
+                          "secondary": "#006a62",
+                          "on-background": "#281718",
+                          "surface-dim": "#f2d3d3",
+                          "surface-bright": "#fff8f7",
+                          "background": "#fff8f7",
+                          "surface-container": "#ffe9e9",
+                          "surface": "#fff8f7",
+                          "tertiary-fixed-dim": "#62dca3"
+                  },
+                  "borderRadius": {
+                          "DEFAULT": "0.25rem",
+                          "lg": "0.5rem",
+                          "xl": "0.75rem",
+                          "full": "9999px"
+                  },
+                  "spacing": {
+                          "margin-desktop": "80px",
+                          "sm": "12px",
+                          "xs": "4px",
+                          "margin-mobile": "20px",
+                          "lg": "48px",
+                          "gutter": "24px",
+                          "xl": "80px",
+                          "base": "8px",
+                          "md": "24px"
+                  },
+                  "fontFamily": {
+                          "body-lg": ["Inter"],
+                          "body-md": ["Inter"],
+                          "headline-md": ["Inter"],
+                          "headline-lg-mobile": ["Inter"],
+                          "headline-lg": ["Inter"],
+                          "label-md": ["Inter"],
+                          "label-sm": ["Inter"],
+                          "headline-xl": ["Inter"]
+                  },
+                  "fontSize": {
+                          "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                          "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                          "headline-md": ["24px", {"lineHeight": "30px", "fontWeight": "600"}],
+                          "headline-lg-mobile": ["26px", {"lineHeight": "32px", "fontWeight": "700"}],
+                          "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                          "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                          "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                          "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                  }
+                },
+              },
+            }
+        </script>
+    <style>
+            body { font-family: 'Inter', sans-serif; }
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+                vertical-align: middle;
+            }
+            .hide-scrollbar::-webkit-scrollbar { display: none; }
+            .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        </style>
+    </head>
+    <body class="bg-surface text-on-surface">
+    <!-- Top Navigation Bar -->
+    <header class="bg-surface sticky top-0 z-50 shadow-sm">
+    <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-screen-2xl mx-auto">
+    <!-- Brand Identity -->
+    <a class="flex items-center gap-2" href="#">
+    <img alt="Nest Stay Logo" class="h-8 md:h-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDr-nBtQmB0HHVKpokwxDfIoloiLm9mgxl--6kbCOfPnd-4jIiUipjRL8HOyGfTJ80Vh32GdUvnBdDdvZHNZxQYzNaq5cY5IVPjGco9wFZezzvb25-TLmYAkorcs-F8Wk7xQ4ZxR1KInYP9JBNFbtb0N8HDXmIK_SnVbLAsdHNkkD-9z5s8vkMqrfyEVsDuMw5grn0k6Wn8_1mBVxk4s89voAvDL4MUWhmUMnApRyL_MeTt51TvZpJu">
+    <span class="font-headline-md text-headline-md font-bold text-primary">Nest Stay</span>
+    </a>
+    <!-- Central Navigation (Desktop) -->
+    <nav class="hidden md:flex items-center gap-8">
+    <a class="font-body-md text-body-md text-on-surface font-bold border-b-2 border-primary pb-1" href="#">Explore</a>
+    <a class="font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low transition-colors px-2 py-1 rounded-lg" href="#">Experiences</a>
+    <a class="font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low transition-colors px-2 py-1 rounded-lg" href="#">Online Experiences</a>
+    </nav>
+    <!-- Actions -->
+    <div class="flex items-center gap-4">
+    <button class="hidden lg:block font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low px-4 py-2 rounded-full transition-colors">Become a Host</button>
+    <button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">language</button>
+    <div class="flex items-center gap-2 border border-outline-variant rounded-full px-3 py-1.5 hover:shadow-md transition-shadow cursor-pointer">
+    <span class="material-symbols-outlined text-on-surface-variant">menu</span>
+    <div class="w-8 h-8 rounded-full bg-on-surface-variant flex items-center justify-center text-white overflow-hidden">
+    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+    </div>
+    </div>
+    </div>
+    </div>
+    </header>
+    <!-- Category Filter Bar -->
+    <div class="bg-surface border-b border-outline-variant sticky top-[72px] z-40">
+    <div class="max-w-screen-2xl mx-auto px-margin-mobile md:px-margin-desktop flex items-center gap-10 overflow-x-auto hide-scrollbar py-4">
+    <button class="flex flex-col items-center gap-2 group min-w-fit border-b-2 border-on-surface pb-2">
+    <span class="material-symbols-outlined text-on-surface">cottage</span>
+    <span class="font-label-sm text-label-sm text-on-surface">Cabins</span>
+    </button>
+    <button class="flex flex-col items-center gap-2 group min-w-fit border-b-2 border-transparent hover:border-outline-variant pb-2 transition-all">
+    <span class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface transition-colors">beach_access</span>
+    <span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Beachfront</span>
+    </button>
+    <button class="flex flex-col items-center gap-2 group min-w-fit border-b-2 border-transparent hover:border-outline-variant pb-2 transition-all">
+    <span class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface transition-colors">landscape</span>
+    <span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Countryside</span>
+    </button>
+    <button class="flex flex-col items-center gap-2 group min-w-fit border-b-2 border-transparent hover:border-outline-variant pb-2 transition-all">
+    <span class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface transition-colors">pool</span>
+    <span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Amazing Pools</span>
+    </button>
+    <button class="flex flex-col items-center gap-2 group min-w-fit border-b-2 border-transparent hover:border-outline-variant pb-2 transition-all">
+    <span class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface transition-colors">local_fire_department</span>
+    <span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Trending</span>
+    </button>
+    <button class="flex flex-col items-center gap-2 group min-w-fit border-b-2 border-transparent hover:border-outline-variant pb-2 transition-all">
+    <span class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface transition-colors">castle</span>
+    <span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Castles</span>
+    </button>
+    <button class="flex flex-col items-center gap-2 group min-w-fit border-b-2 border-transparent hover:border-outline-variant pb-2 transition-all">
+    <span class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface transition-colors">apartment</span>
+    <span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Design</span>
+    </button>
+    <button class="flex flex-col items-center gap-2 group min-w-fit border-b-2 border-transparent hover:border-outline-variant pb-2 transition-all">
+    <span class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface transition-colors">forest</span>
+    <span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Treehouses</span>
+    </button>
+    </div>
+    </div>
+    <main class="max-w-screen-2xl mx-auto px-margin-mobile md:px-margin-desktop py-xl">
+    <!-- Hero Search Section -->
+    <section class="mb-xl">
+    <div class="bg-surface border border-outline-variant rounded-full shadow-lg p-2 flex flex-col md:flex-row items-center justify-between gap-2 max-w-4xl mx-auto group">
+    <button class="w-full md:w-1/3 flex flex-col items-start px-6 py-2 hover:bg-surface-container-high rounded-full transition-colors text-left">
+    <span class="font-label-sm text-label-sm text-on-surface-variant">Where</span>
+    <span class="font-body-md text-body-md text-on-surface font-medium">Search destinations</span>
+    </button>
+    <div class="hidden md:block w-px h-8 bg-outline-variant"></div>
+    <button class="w-full md:w-1/4 flex flex-col items-start px-6 py-2 hover:bg-surface-container-high rounded-full transition-colors text-left">
+    <span class="font-label-sm text-label-sm text-on-surface-variant">Check in</span>
+    <span class="font-body-md text-body-md text-on-surface font-medium">Add dates</span>
+    </button>
+    <div class="hidden md:block w-px h-8 bg-outline-variant"></div>
+    <button class="w-full md:w-1/3 flex flex-col items-start px-6 py-2 hover:bg-surface-container-high rounded-full transition-colors text-left">
+    <span class="font-label-sm text-label-sm text-on-surface-variant">Who</span>
+    <span class="font-body-md text-body-md text-on-surface font-medium">Add guests</span>
+    </button>
+    <button class="bg-primary text-on-primary p-4 rounded-full flex items-center justify-center scale-100 hover:scale-105 active:scale-95 transition-transform shadow-md">
+    <span class="material-symbols-outlined">search</span>
+    </button>
+    </div>
+    </section>
+    <!-- Destination Grid -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
+    <!-- Card 1 -->
+    <div class="flex flex-col gap-sm group cursor-pointer">
+    <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-surface-container">
+    <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A high-end modern cabin nestled in the heart of a snowy Joshua Tree landscape. The architecture features large glass panels reflecting a vibrant sunset glow, blending warm interior lighting with the cool exterior twilight. The surrounding desert flora is lightly dusted with snow, creating a serene, aspirational travel vibe with a minimalist luxury aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwFPfC1IE_QP0bUFGhjzTiPiZU64_WLSzyZBhJmfF-2VBD7yNYTDdoLXvKEoUOWmvN73_wsWsDC1AND_XeV4Sgq75jdgtxHaRWhUPReLECjsokGWzV3IdlmUSnFb2NEbOZ2izzzyI1a5NMSnMHrxZ37Rmvonbh7rYw5KSXZ8DzIkRwmyqI_qxsfh3Wx3K2FZ6ooE5gcJVj34QU8VP_HbmC_gsRQrHdK7-5BpkcWL93dCSMYRSPMZA7">
+    <button class="absolute top-4 right-4 p-2 text-white hover:scale-110 transition-transform">
+    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+    </button>
+    </div>
+    <div class="flex justify-between items-start">
+    <div class="flex flex-col">
+    <h3 class="font-body-lg text-body-lg font-bold text-on-surface">Joshua Tree, California</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant">150 miles away</p>
+    <p class="font-body-md text-body-md text-on-surface-variant">Oct 12-17</p>
+    <p class="mt-2 font-body-lg text-body-lg text-on-surface"><span class="font-bold">$145</span> night</p>
+    </div>
+    <div class="flex items-center gap-1">
+    <span class="material-symbols-outlined text-sm text-on-surface" style="font-variation-settings: 'FILL' 1;">star</span>
+    <span class="font-body-md text-body-md text-on-surface">4.92</span>
+    </div>
+    </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="flex flex-col gap-sm group cursor-pointer">
+    <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-surface-container">
+    <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="An expansive white-stone villa perched on a Mediterranean cliffside overlooking a turquoise ocean. The scene is drenched in bright, natural morning light, highlighting the crisp textures of the modern architecture and lush bougainvillea flowers. The atmosphere is quiet, reliable, and premium, evoking a sense of effortless discovery and deep relaxation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwwhxJlLjXfTI9kpDQgAo3BcgphlZQpx9kAB0ZlPqnO2qwcBYS4bXKSGx1ChRLW4wxOS8UbuC23S9wjMogkPNvQqkhuJi0fVvVUElC9aAN99IAsvLPFZLycWOLFpX13hyzBUcW4uDMuDRQUgPi8KrynrFxktjS1QcgIOZfZatQk5oh9j87ias9wS6ciXtUx18H7tELfO9bcVPW9BIAJVkHBbH5eG0foWQOHXji_EDX5mKcP4bHP_Aq">
+    <button class="absolute top-4 right-4 p-2 text-white hover:scale-110 transition-transform">
+    <span class="material-symbols-outlined">favorite</span>
+    </button>
+    </div>
+    <div class="flex justify-between items-start">
+    <div class="flex flex-col">
+    <h3 class="font-body-lg text-body-lg font-bold text-on-surface">Santorini, Greece</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant">5,432 miles away</p>
+    <p class="font-body-md text-body-md text-on-surface-variant">Sep 20-25</p>
+    <p class="mt-2 font-body-lg text-body-lg text-on-surface"><span class="font-bold">$420</span> night</p>
+    </div>
+    <div class="flex items-center gap-1">
+    <span class="material-symbols-outlined text-sm text-on-surface" style="font-variation-settings: 'FILL' 1;">star</span>
+    <span class="font-body-md text-body-md text-on-surface">4.98</span>
+    </div>
+    </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="flex flex-col gap-sm group cursor-pointer">
+    <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-surface-container">
+    <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A cozy, rustic farmhouse in the heart of the Italian countryside, surrounded by golden wheat fields and rows of cypress trees. The lighting is the soft, warm 'golden hour' glow of late afternoon. The aesthetic is modern corporate minimalism meets warm traditional living, focusing on the emotional connection of a home away from home." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4O8DWdNbH9FO4VbKVowfIGBi1UMCUVyxPTAAllS183Xvir0iUpN0YsDkY_Ecm3TvVX81KRdoGyQ4xx4OUCn3R6cDunHjwkiYTgzMZlLWJXBhY4b4eG4UVpbxweA5lHuQSB02zdKibCHiR2TlMiQsSC4MZSOEdI9bRzBz4BvmSb119gYU21FdKe1FhKifiEKrCO2TKybCRb_JwITBTd3dRLb0OKkoN65VWKf8yp1bS-NIVmHICnnhK">
+    <button class="absolute top-4 right-4 p-2 text-white hover:scale-110 transition-transform">
+    <span class="material-symbols-outlined">favorite</span>
+    </button>
+    </div>
+    <div class="flex justify-between items-start">
+    <div class="flex flex-col">
+    <h3 class="font-body-lg text-body-lg font-bold text-on-surface">Tuscany, Italy</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant">6,120 miles away</p>
+    <p class="font-body-md text-body-md text-on-surface-variant">Nov 5-10</p>
+    <p class="mt-2 font-body-lg text-body-lg text-on-surface"><span class="font-bold">$210</span> night</p>
+    </div>
+    <div class="flex items-center gap-1">
+    <span class="material-symbols-outlined text-sm text-on-surface" style="font-variation-settings: 'FILL' 1;">star</span>
+    <span class="font-body-md text-body-md text-on-surface">4.85</span>
+    </div>
+    </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="flex flex-col gap-sm group cursor-pointer">
+    <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-surface-container">
+    <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A luxurious glass-walled apartment overlooking a vibrant city skyline at night. The interior is styled with sleek, minimalist furniture and warm, soft-focus ambient lighting. The exterior city lights create a bokeh effect of primary reds and whites against the dark sky, suggesting a professional yet aspirational urban retreat." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi9f_uedMMp-Dkbyi969Ca4GjJ8I4H5ogl6W4ONLIJrkAMWqpwiSERbjlaMXM-C8U3vgSTxsa7rcc8HBPBfWlt1wLEvWxAN9b2kkbfgMyszdGGZvZQ3BF56bXv25M9gpv2UdCZJBmdxCiTIOVgFkq6KwUQIAP9nyJLcG3tZwDf64Aj9u8cAyfFppYkg6iAPGRuaMbNn8WD3ZuDasyaDaAxQO0zOOFaaqafaU-Op-MiZ8fOr_njfgHo">
+    <button class="absolute top-4 right-4 p-2 text-white hover:scale-110 transition-transform">
+    <span class="material-symbols-outlined">favorite</span>
+    </button>
+    </div>
+    <div class="flex justify-between items-start">
+    <div class="flex flex-col">
+    <h3 class="font-body-lg text-body-lg font-bold text-on-surface">Tokyo, Japan</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant">Host is a designer</p>
+    <p class="font-body-md text-body-md text-on-surface-variant">Oct 24-29</p>
+    <p class="mt-2 font-body-lg text-body-lg text-on-surface"><span class="font-bold">$185</span> night</p>
+    </div>
+    <div class="flex items-center gap-1">
+    <span class="material-symbols-outlined text-sm text-on-surface" style="font-variation-settings: 'FILL' 1;">star</span>
+    <span class="font-body-md text-body-md text-on-surface">4.95</span>
+    </div>
+    </div>
+    </div>
+    <!-- Card 5 -->
+    <div class="flex flex-col gap-sm group cursor-pointer">
+    <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-surface-container">
+    <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A futuristic A-frame cabin located deep in a lush, misty forest of the Pacific Northwest. The building's dark wood and matte black metal exterior contrast with the vibrant green moss and ferns. Soft, diffused daylight filters through the canopy, creating a peaceful, secluded atmosphere that promises a reliable and tranquil escape." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUZ3pM6iVz4nnb06CVFclyOBgwS-naPCmyNhle6a5RXCXwzDx-M9jVxYtAzEfQwtQq2RdmHYoz0JVlZF2otYwrzLzSAjwn9Xd16X1L2jaTiyye5S-nOA1urZveaG2YZCEShUXAVJDhHzpsC3A0gfdAnA4ceIiZzxDTbdfVEhsUsLN6eZaFLQYSOE_VdbbpKDb9h0Zu-B5dtIsZ5oaOkTbO1RsH5vaOLMlsmoA8IpfLmmsp0WLh6duN">
+    <button class="absolute top-4 right-4 p-2 text-white hover:scale-110 transition-transform">
+    <span class="material-symbols-outlined">favorite</span>
+    </button>
+    </div>
+    <div class="flex justify-between items-start">
+    <div class="flex flex-col">
+    <h3 class="font-body-lg text-body-lg font-bold text-on-surface">Portland, Oregon</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant">Treehouse retreat</p>
+    <p class="font-body-md text-body-md text-on-surface-variant">Dec 1-6</p>
+    <p class="mt-2 font-body-lg text-body-lg text-on-surface"><span class="font-bold">$310</span> night</p>
+    </div>
+    <div class="flex items-center gap-1">
+    <span class="material-symbols-outlined text-sm text-on-surface" style="font-variation-settings: 'FILL' 1;">star</span>
+    <span class="font-body-md text-body-md text-on-surface">4.89</span>
+    </div>
+    </div>
+    </div>
+    <!-- Card 6 -->
+    <div class="flex flex-col gap-sm group cursor-pointer">
+    <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-surface-container">
+    <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A modern beach house with a large infinity pool that blends into the turquoise Caribbean Sea. Pristine white sand and swaying palm trees frame the view. The lighting is high-key and bright, evoking an effortless, aspirational luxury travel experience in a minimalist, sun-drenched environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVX391pCwfm8d9KAOkwav7KGHK39XJZH9O24vaa0vPcFAG2_Vc1NDJlObUlCkkYhqlbZyKvhX_SM5BT0enAMKplD4vCH1kDEPavbueuFCrGBskqSZ5p9E8pCna31jcWingmatOkKtYzUHWXftPzlaCPBACIb8TPhi-dFE71aEjn2Z-Z65RTwapFF5wySBB4IXNfuztMbWSdsNmIFmv3QUUHs9E06dLo58SRrbGBH4m2H7jM78jHJCq">
+    <button class="absolute top-4 right-4 p-2 text-white hover:scale-110 transition-transform">
+    <span class="material-symbols-outlined">favorite</span>
+    </button>
+    </div>
+    <div class="flex justify-between items-start">
+    <div class="flex flex-col">
+    <h3 class="font-body-lg text-body-lg font-bold text-on-surface">Tulum, Mexico</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant">Beachfront paradise</p>
+    <p class="font-body-md text-body-md text-on-surface-variant">Jan 10-15</p>
+    <p class="mt-2 font-body-lg text-body-lg text-on-surface"><span class="font-bold">$550</span> night</p>
+    </div>
+    <div class="flex items-center gap-1">
+    <span class="material-symbols-outlined text-sm text-on-surface" style="font-variation-settings: 'FILL' 1;">star</span>
+    <span class="font-body-md text-body-md text-on-surface">4.97</span>
+    </div>
+    </div>
+    </div>
+    <!-- Card 7 -->
+    <div class="flex flex-col gap-sm group cursor-pointer">
+    <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-surface-container">
+    <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A stunning, historic French chateau set in vast, manicured gardens during peak autumn. The stone walls are covered in red ivy, matching the warm primary color palette of the brand. The lighting is crisp and clear, creating a majestic and reliable sense of history and professional hospitality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVwGFZxOBOvz4xhXR8mwIUq32hmXCev0998-kiRbeIfw3bVhxkfZkkNgWChQYEJsYE1fky8jcXGX8KV25y8DJqjifKMGSpRoUd0hDaC3OWMksV5hgGdngY9VW-kauEfO_i_z3jb-Ue2sDDT_U_3WLjJral0IvPkQGlM6vkxFHOE8ZqDPhtd0u1Ht0ggJ53FIgISJO0aT9WZALAdTXDs09J0CzVX9Sc0uRGo3XH5f5gZ8ZwCK8Bu3nF">
+    <button class="absolute top-4 right-4 p-2 text-white hover:scale-110 transition-transform">
+    <span class="material-symbols-outlined">favorite</span>
+    </button>
+    </div>
+    <div class="flex justify-between items-start">
+    <div class="flex flex-col">
+    <h3 class="font-body-lg text-body-lg font-bold text-on-surface">Loire Valley, France</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant">Historical castle</p>
+    <p class="font-body-md text-body-md text-on-surface-variant">Sep 15-20</p>
+    <p class="mt-2 font-body-lg text-body-lg text-on-surface"><span class="font-bold">$890</span> night</p>
+    </div>
+    <div class="flex items-center gap-1">
+    <span class="material-symbols-outlined text-sm text-on-surface" style="font-variation-settings: 'FILL' 1;">star</span>
+    <span class="font-body-md text-body-md text-on-surface">5.0</span>
+    </div>
+    </div>
+    </div>
+    <!-- Card 8 -->
+    <div class="flex flex-col gap-sm group cursor-pointer">
+    <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-surface-container">
+    <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A high-altitude mountain lodge in the Swiss Alps, featuring floor-to-ceiling windows showing jagged, snow-capped peaks. The interior is modern and warm with soft textiles and a crackling fireplace. The blue-hour lighting provides a calm, reliable, and premium atmosphere for a luxurious winter getaway." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAzRtlmV4ewO2E94_yFnfXRGJQnxsqmcPgY-Kcl-LpQNSSYtsxYhj7jmtI8y73i3DjRQq1VV1frmsTdQnj94_BluqpuxCkORyPyB6VmZTY_oHEtjewIIT6uH09w2kVCiygIZVtj1dJ8sBd0twk-ZxyfstpjIlS_ceWv8uqDpum_P8eh5hCa8FinCqLF8N2vWN332cZzjgI0aqACZwgdcty3ezpXLwyNtll7ZWSz2uUK7KBB8zlcsfk">
+    <button class="absolute top-4 right-4 p-2 text-white hover:scale-110 transition-transform">
+    <span class="material-symbols-outlined">favorite</span>
+    </button>
+    </div>
+    <div class="flex justify-between items-start">
+    <div class="flex flex-col">
+    <h3 class="font-body-lg text-body-lg font-bold text-on-surface">Zermatt, Switzerland</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant">Mountain views</p>
+    <p class="font-body-md text-body-md text-on-surface-variant">Feb 14-19</p>
+    <p class="mt-2 font-body-lg text-body-lg text-on-surface"><span class="font-bold">$670</span> night</p>
+    </div>
+    <div class="flex items-center gap-1">
+    <span class="material-symbols-outlined text-sm text-on-surface" style="font-variation-settings: 'FILL' 1;">star</span>
+    <span class="font-body-md text-body-md text-on-surface">4.99</span>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- Pagination/Load More -->
+    <div class="flex justify-center mt-xl">
+    <button class="bg-inverse-surface text-inverse-on-surface font-label-md text-label-md px-10 py-4 rounded-xl hover:opacity-90 active:scale-95 transition-all shadow-md">
+                    Show more
+                </button>
+    </div>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface-container-low dark:bg-surface-container-lowest w-full px-margin-desktop py-xl mt-xl flex flex-col md:flex-row justify-between items-center gap-md">
+    <div class="flex flex-col items-center md:items-start gap-2">
+    <span class="font-headline-md text-headline-md font-bold text-primary">Nest Stay</span>
+    <p class="text-on-surface-variant font-label-sm text-label-sm opacity-80">© 2024 Nest Stay, Inc.</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-x-8 gap-y-2">
+    <a class="text-on-surface-variant dark:text-outline font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Privacy</a>
+    <a class="text-on-surface-variant dark:text-outline font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Terms</a>
+    <a class="text-on-surface-variant dark:text-outline font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Sitemap</a>
+    <a class="text-on-surface-variant dark:text-outline font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Company Details</a>
+    <a class="text-on-surface-variant dark:text-outline font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Destinations</a>
+    </div>
+    <div class="flex items-center gap-6">
+    <div class="flex items-center gap-2 cursor-pointer group">
+    <span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">public</span>
+    <span class="font-label-sm text-label-sm font-semibold">English (US)</span>
+    </div>
+    <div class="flex items-center gap-2 cursor-pointer group">
+    <span class="font-label-sm text-label-sm font-semibold">$ USD</span>
+    </div>
+    </div>
+    </footer>
+    <!-- Mobile Navigation Shell -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-outline-variant px-6 py-3 z-50 flex justify-between items-center">
+    <button class="flex flex-col items-center gap-1 text-primary">
+    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+    <span class="text-[10px] font-bold">Explore</span>
+    </button>
+    <button class="flex flex-col items-center gap-1 text-on-surface-variant">
+    <span class="material-symbols-outlined">favorite</span>
+    <span class="text-[10px] font-medium">Wishlists</span>
+    </button>
+    <button class="flex flex-col items-center gap-1 text-on-surface-variant">
+    <span class="material-symbols-outlined">luggage</span>
+    <span class="text-[10px] font-medium">Trips</span>
+    </button>
+    <button class="flex flex-col items-center gap-1 text-on-surface-variant">
+    <span class="material-symbols-outlined">chat</span>
+    <span class="text-[10px] font-medium">Inbox</span>
+    </button>
+    <button class="flex flex-col items-center gap-1 text-on-surface-variant">
+    <span class="material-symbols-outlined">account_circle</span>
+    <span class="text-[10px] font-medium">Profile</span>
+    </button>
+    </div>
+    <script>
+            // Simple scroll interaction for the header
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 0) {
+                    header.classList.add('shadow-md');
+                    header.classList.remove('shadow-sm');
+                } else {
+                    header.classList.add('shadow-sm');
+                    header.classList.remove('shadow-md');
+                }
+            });
+    
+            // Toggle heart buttons
+            document.querySelectorAll('.material-symbols-outlined').forEach(icon => {
+                if (icon.textContent === 'favorite') {
+                    icon.parentElement.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const isFilled = icon.style.fontVariationSettings.includes("'FILL' 1");
+                        icon.style.fontVariationSettings = isFilled ? "'FILL' 0" : "'FILL' 1";
+                        icon.classList.toggle('text-primary', !isFilled);
+                        icon.classList.toggle('text-white', isFilled);
+                    });
+                }
+            });
+        </script>
+    
+    
+    </body></html>
