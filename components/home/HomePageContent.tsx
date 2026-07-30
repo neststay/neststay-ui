@@ -13,6 +13,7 @@ import { CategoryFilterBar } from "@/components/navigation/CategoryFilterBar";
 import {
   PropertyListingSection,
   type PropertyListingSectionHandle,
+  type SearchResultsPayload,
 } from "@/components/property/PropertyListingSection";
 import { SearchForm } from "@/components/search/SearchForm";
 
@@ -20,12 +21,16 @@ type HomePageContentProps = {
   initialProperties: PropertyCardData[];
   initialMeta: PaginationMetaDto;
   fetchError?: string | null;
+  initialWhere?: string;
+  initialSearchQuery?: SearchResultsPayload["query"];
 };
 
 export function HomePageContent({
   initialProperties,
   initialMeta,
   fetchError = null,
+  initialWhere = "",
+  initialSearchQuery,
 }: HomePageContentProps) {
   const listingRef = useRef<PropertyListingSectionHandle>(null);
 
@@ -78,12 +83,14 @@ export function HomePageContent({
           </p>
         ) : null}
         <SearchForm
-          onResults={(results) => listingRef.current?.applySearchResults(results)}
+          initialWhere={initialWhere}
+          isActiveSearch={Boolean(initialSearchQuery)}
         />
         <PropertyListingSection
           ref={listingRef}
           initialProperties={initialProperties}
           initialMeta={initialMeta}
+          initialSearchQuery={initialSearchQuery}
         />
       </PageContainer>
     </>

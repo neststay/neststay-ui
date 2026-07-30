@@ -28,22 +28,23 @@ The repo is currently a bare Next.js 16 starter (`app/page.tsx` placeholder). Th
 - Extract all six page regions into components per the ticket's folder structure.
 - **API layer:** `lib/api.ts`, Route Handlers under `app/api/`, upstream types, and mappers from API DTOs → card UI props.
 - **Initial listings:** Server Component fetch via `lib/api.ts` → `GET /properties?locationId=…`.
-- **Search:** `SearchForm` submit → client fetch → `GET /api/search` → upstream `GET /search`.
-- **Load more:** Client pagination via `GET /api/properties?page=…`.
+- **Search:** `SearchForm` submit → navigate to `/search?q=…`; page Server Component fetches via `lib/api.ts` → upstream `GET /search`. Clear via × in Where + “Clear search” → `/`.
+- **Load more:** Client pagination via `GET /api/properties?page=…` (home) or `GET /api/search?page=…` (search).
 - **Favourites toggle:** `FavoriteButton` → `POST /api/properties/[slug]/favourite` (auth required; graceful 401 when logged out).
-- Wire `app/layout.tsx` (global chrome) and `app/page.tsx` (home content).
+- Wire `app/layout.tsx` (global chrome), `app/page.tsx` (home), and `app/search/page.tsx` (search results).
 - Client interactivity: header scroll shadow, category tab selection, favorite toggle, search form (Formik).
 - Configure Next.js for remote property/logo images; placeholder when API returns empty `images[]`.
 - `UPSTREAM_API_URL` env var pointing at `http://localhost:3000`.
 
 **Out of scope:**
-- Real date-picker / guest-picker modals (search submits text + guest count only for now).
+- Real date-picker / guest-picker modals (search submits Where text only for now; guests ignored on navigate).
 - Login/register UI (favourite toggle shows optimistic local state or toast on 401).
 - Separate footer link components (array-driven links in `Footer` is sufficient).
 - Separate `WhereField` / `DatesField` / `WhoField` (one `SearchField` with props).
 - Dedicated scroll-shadow component (inline hook in `Header`).
 - Dark mode polish beyond token availability (sample supports `class="light"` only).
 - Property detail page (`GET /properties/{slug}`) — link cards optionally, page itself not built here.
+- Category bar URL sync on `/search` (still in-place `/api/search` updates).
 
 ---
 
@@ -459,3 +460,18 @@ npm run dev -- -p 3001
 npm run lint
 npm run build
 ```
+
+---
+
+## 7. Open questions (search page follow-up)
+
+> Added 2026-07-30 — search submit should navigate to `/search?q=…` instead of updating the home grid in place.
+
+4. **Reset search UI:** Provide a clear way to clear the active query and return to the default listings experience.
+   - **Decision:** C — clear (×) inside the Where field when it has text, plus a “Clear search” affordance under the form (visible when a query is active). Both navigate back to `/` and clear form fields / drop `q`.
+5. **Pre-fill Where field?** On `/search?q=beach`, should the SearchForm “Where” input show `beach` pre-filled, or stay empty?
+   - **Decision:** A — pre-fill from `q`.
+6. **Missing/`q` empty:** If someone visits `/search` with no `q`, redirect to `/` or show the same layout with an empty/error state?
+   - **Decision:** A — redirect to `/`.
+7. **Category bar on `/search`:** Keep in-place `/api/search` updates for now, or also push to `/search?q=…&placeTypeName=…`?
+   - **Decision:** A — keep in-place `/api/search` updates; URL changes only from SearchForm submit / clear.

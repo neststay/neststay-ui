@@ -11,16 +11,29 @@ import {
   DEFAULT_LISTINGS_PAGE_SIZE,
   DEFAULT_LOCATION_ID,
 } from "@/lib/constants/config";
-import { mapPropertyListToCardData, mapSearchResultsToCardData } from "@/lib/mappers/property";
+import {
+  mapPropertyListToCardData,
+  mapSearchResultsToCardData,
+} from "@/lib/mappers/property";
 import type { PaginationMetaDto } from "@/lib/types/api";
 import type { PropertyCardData } from "@/lib/types/property-card";
 import type {
   PaginatedPropertyListDto,
   SearchResponseDto,
 } from "@/lib/types/property";
-import type { SearchResultsPayload } from "@/components/search/SearchForm";
 import { Button } from "@/components/ui/Button";
 import { PropertyGrid } from "@/components/property/PropertyGrid";
+
+export type SearchResultsPayload = {
+  items: PropertyCardData[];
+  meta: PaginationMetaDto;
+  searchId: string;
+  query: {
+    q: string;
+    numberOfGuests?: string;
+    placeTypeName?: string;
+  };
+};
 
 export type PropertyListingSectionHandle = {
   applySearchResults: (results: SearchResultsPayload) => void;
@@ -30,13 +43,15 @@ type ListingMode =
   | { type: "list"; locationId: number }
   | {
       type: "search";
-      query: NonNullable<SearchResultsPayload["query"]>;
+      query: SearchResultsPayload["query"];
     };
 
 type PropertyListingSectionProps = {
   initialProperties: PropertyCardData[];
   initialMeta: PaginationMetaDto;
   locationId?: number;
+  /** When set, start in search mode so load-more uses /api/search. */
+  initialSearchQuery?: SearchResultsPayload["query"];
 };
 
 export const PropertyListingSection = forwardRef<
@@ -47,16 +62,18 @@ export const PropertyListingSection = forwardRef<
     initialProperties,
     initialMeta,
     locationId = DEFAULT_LOCATION_ID,
+    initialSearchQuery,
   },
   ref,
 ) {
   const [properties, setProperties] =
     useState<PropertyCardData[]>(initialProperties);
   const [meta, setMeta] = useState<PaginationMetaDto>(initialMeta);
-  const [mode, setMode] = useState<ListingMode>({
-    type: "list",
-    locationId,
-  });
+  const [mode, setMode] = useState<ListingMode>(
+    initialSearchQuery
+      ? { type: "search", query: initialSearchQuery }
+      : { type: "list", locationId },
+  );
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
