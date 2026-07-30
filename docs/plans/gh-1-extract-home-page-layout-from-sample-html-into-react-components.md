@@ -375,35 +375,35 @@ Example upstream list response (`GET /properties?locationId=1`):
 
 ### Section C: Layout chrome (header, footer, mobile nav)
 
-- [ ] Create `components/navigation/Logo.tsx` with `variant="full" | "text"`
-- [ ] Create `components/navigation/NavLink.tsx` and `Navigation.tsx`
-- [ ] Create `components/navigation/HeaderActions.tsx`
-- [ ] Create `components/layout/Header.tsx` (client: scroll shadow toggle)
-- [ ] Create `components/layout/Footer.tsx`
-- [ ] Create `components/navigation/MobileNavItem.tsx` and `components/layout/MobileBottomNav.tsx`
-- [ ] Update `app/layout.tsx`: metadata, Header, children, Footer, MobileBottomNav
+- [x] Create `components/navigation/Logo.tsx` with `variant="full" | "text"`
+- [x] Create `components/navigation/NavLink.tsx` and `Navigation.tsx`
+- [x] Create `components/navigation/HeaderActions.tsx`
+- [x] Create `components/layout/Header.tsx` (client: scroll shadow toggle)
+- [x] Create `components/layout/Footer.tsx`
+- [x] Create `components/navigation/MobileNavItem.tsx` and `components/layout/MobileBottomNav.tsx`
+- [x] Update `app/layout.tsx`: metadata, Header, children, Footer, MobileBottomNav
 
 ### Section D: Category filter and search
 
-- [ ] Install `formik`: `npm install formik`
-- [ ] Create `components/navigation/CategoryTab.tsx` and `CategoryFilterBar.tsx`
-- [ ] Create `components/search/SearchField.tsx` and `SearchSubmitButton.tsx`
-- [ ] Create `components/search/SearchForm.tsx` — Formik; submit fetches `/api/search`, calls `onResults` callback
+- [x] Install `formik`: `npm install formik`
+- [x] Create `components/navigation/CategoryTab.tsx` and `CategoryFilterBar.tsx`
+- [x] Create `components/search/SearchField.tsx` and `SearchSubmitButton.tsx`
+- [x] Create `components/search/SearchForm.tsx` — Formik; submit fetches `/api/search`, calls `onResults` callback
 
 ### Section E: Property listing grid (API-driven)
 
-- [ ] Create `components/property/FavoriteButton.tsx` — POST `/api/properties/[slug]/favourite`
-- [ ] Create `components/property/PropertyPrice.tsx` (omit `PropertyRating` or hide when no data)
-- [ ] Create `components/property/PropertyCard.tsx` using `next/image`, `Heading`, placeholder for missing images
-- [ ] Create `components/property/PropertyGrid.tsx`
-- [ ] Create `components/property/PropertyListingSection.tsx` — client state, load-more via `/api/properties`, accepts search results from `SearchForm`
-- [ ] Add public placeholder image for empty API images
+- [x] Create `components/property/FavoriteButton.tsx` — POST `/api/properties/[slug]/favourite`
+- [x] Create `components/property/PropertyPrice.tsx` (omit `PropertyRating` or hide when no data)
+- [x] Create `components/property/PropertyCard.tsx` using `next/image`, `Heading`, placeholder for missing images
+- [x] Create `components/property/PropertyGrid.tsx`
+- [x] Create `components/property/PropertyListingSection.tsx` — client state, load-more via `/api/properties`, accepts search results from `SearchForm`
+- [x] Add public placeholder image for empty API images
 
 ### Section F: Home page composition and cleanup
 
-- [ ] Rewrite `app/page.tsx`: server fetch initial listings via `lib/api.ts`; compose `CategoryFilterBar`, `SearchForm`, `PropertyListingSection`
-- [ ] Remove starter Next.js placeholder content
-- [ ] Visual pass against `sample.html`; verify real API data renders
+- [x] Rewrite `app/page.tsx`: server fetch initial listings via `lib/api.ts`; compose `CategoryFilterBar`, `SearchForm`, `PropertyListingSection`
+- [x] Remove starter Next.js placeholder content
+- [x] Visual pass against `sample.html`; verify real API data renders
 
 ---
 
