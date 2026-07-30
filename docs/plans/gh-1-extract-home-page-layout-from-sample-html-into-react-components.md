@@ -352,26 +352,26 @@ Example upstream list response (`GET /properties?locationId=1`):
 
 ### Section A: Design tokens and shared primitives
 
-- [ ] Migrate color, spacing, typography, and border-radius tokens from `sample.html` lines 9–102 into `app/globals.css` `@theme inline`
-- [ ] Add `.hide-scrollbar` utility and set `body` to `bg-surface text-on-surface`
-- [ ] Replace Geist fonts with Inter in `app/layout.tsx` via `next/font/google`
-- [ ] Create `components/Heading.tsx` per `components.md`
-- [ ] Create `components/Icon.tsx` with all icon names used in `sample.html`
-- [ ] Create `components/ui/Button.tsx` with primary and inverse variants
-- [ ] Create `components/layout/PageContainer.tsx`
+- [x] Migrate color, spacing, typography, and border-radius tokens from `sample.html` lines 9–102 into `app/globals.css` `@theme inline`
+- [x] Add `.hide-scrollbar` utility and set `body` to `bg-surface text-on-surface`
+- [x] Replace Geist fonts with Inter in `app/layout.tsx` via `next/font/google`
+- [x] Create `components/Heading.tsx` per `components.md`
+- [x] Create `components/Icon.tsx` with all icon names used in `sample.html`
+- [x] Create `components/ui/Button.tsx` with primary and inverse variants
+- [x] Create `components/layout/PageContainer.tsx`
 
 ### Section B: API layer, types, and mappers
 
-- [ ] Add `.env.local.example` with `UPSTREAM_API_URL=http://localhost:3000`
-- [ ] Create `lib/api.ts` per `api_calls.md` (`get`, `post`, `patch`, `del`; explicit `auth` mode)
-- [ ] Create `lib/types/api.ts`, `lib/types/property.ts`, `lib/types/property-card.ts`
-- [ ] Create `lib/mappers/property.ts` — map `PropertyResponseDto` and `SearchResultItemDto` → `PropertyCardData`
-- [ ] Create `lib/constants/config.ts` with `DEFAULT_LOCATION_ID = 1`
-- [ ] Add `lib/constants/navigation.ts` and `lib/constants/categories.ts`
-- [ ] Create `app/api/properties/route.ts` — forward `locationId`, `page`, `limit` query params
-- [ ] Create `app/api/search/route.ts` — forward search query params (`q` required)
-- [ ] Create `app/api/properties/[slug]/favourite/route.ts` — `POST` with `auth: "required"`
-- [ ] Configure `next.config.ts` `images.remotePatterns` for API image hosts
+- [x] Add `.env.local.example` with `UPSTREAM_API_URL=http://localhost:3000`
+- [x] Create `lib/api.ts` per `api_calls.md` (`get`, `post`, `patch`, `del`; explicit `auth` mode)
+- [x] Create `lib/types/api.ts`, `lib/types/property.ts`, `lib/types/property-card.ts`
+- [x] Create `lib/mappers/property.ts` — map `PropertyResponseDto` and `SearchResultItemDto` → `PropertyCardData`
+- [x] Create `lib/constants/config.ts` with `DEFAULT_LOCATION_ID = 1`
+- [x] Add `lib/constants/navigation.ts` and `lib/constants/categories.ts`
+- [x] Create `app/api/properties/route.ts` — forward `locationId`, `page`, `limit` query params
+- [x] Create `app/api/search/route.ts` — forward search query params (`q` required)
+- [x] Create `app/api/properties/[slug]/favourite/route.ts` — `POST` with `auth: "required"`
+- [x] Configure `next.config.ts` `images.remotePatterns` for API image hosts
 
 ### Section C: Layout chrome (header, footer, mobile nav)
 
