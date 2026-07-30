@@ -9,5 +9,5 @@ This directory documents architectural decisions for the frontend. Read these be
 - [components.md](./components.md) — reusable UI components and when to use them (includes heading conventions)
 - [icons.md](./icons.md) — SVG icons: `Icon` for UI glyphs, `components/icons/` for brand and standalone icons
 - [forms.md](./forms.md) — how forms are structured and the standalone component pattern
-- [../security.md](../security.md) — route authorization via proxy.ts (protected routes, cookie auth)
+- `proxy.ts` — redirects for protected-page navigation only; the upstream backend remains responsible for authentication and resource-level authorization
 - [api_calls.md](./api_calls.md) — full API call strategy: HTTP service, auth token cookie, Route Handler pattern
