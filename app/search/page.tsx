@@ -37,7 +37,7 @@ async function getSearchResults(q: string) {
 
     const response = await api.get<ResponseApiDto<SearchResponseDto>>(
       `/search?${params.toString()}`,
-      { auth: "none" },
+      { auth: "optional" },
     );
 
     return {

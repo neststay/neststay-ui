@@ -1,5 +1,7 @@
 import { cookies } from "next/headers";
 
+import { AUTH_TOKEN_COOKIE } from "@/lib/auth-cookie";
+
 const BASE_URL = process.env.UPSTREAM_API_URL!;
 
 export type AuthMode = "none" | "required" | "optional";
@@ -57,7 +59,7 @@ async function request<T>(
   const token =
     options.auth === "none"
       ? undefined
-      : cookieStore.get("auth_token")?.value;
+      : cookieStore.get(AUTH_TOKEN_COOKIE)?.value;
 
   if (options.auth === "required" && !token) {
     throw new ApiError("Authentication required", 401);

@@ -52,7 +52,7 @@ export async function GET(req: NextRequest) {
   try {
     const response = await api.get<ResponseApiDto<SearchResponseDto>>(
       upstreamPath,
-      { auth: "none" },
+      { auth: "optional" },
     );
 
     return NextResponse.json(response.data);
